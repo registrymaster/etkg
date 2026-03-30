@@ -6,17 +6,17 @@ on:
   workflow_dispatch:
     inputs:
       account:
-        description: 'Number of Accounts to be generated (default = 0)'
+        description: 'Número de Cuentas para ser generadas (predeterminadas = 0)'
         required: false
         default: '0'
         type: string
       key:
-        description: 'Number of Keys to be generated (default = 1)'
+        description: 'Número de Claves para ser generadas (predeterminadas = 1)'
         required: false
         default: '1'
         type: string
       mail:
-        description: 'Choose the mail provider to generate license'
+        description: 'Elección de proveedor de correo para generar la licencia'
         required: true
         type: choice
         options:
@@ -30,7 +30,7 @@ on:
           - emailfake
         default: emailfake
       key_type:
-        description: 'Modes of operation'
+        description: 'Modos de operación'
         required: true
         type: choice
         options:
@@ -38,7 +38,7 @@ on:
           - --small-business-key
         default: --key
       os:
-        description: 'Operating System of runner (Linux, macOS, Windows)'
+        description: 'Sistema Operativo del usuario (Linux, macOS, Windows)'
         required: true
         type: choice
         options:
@@ -47,7 +47,7 @@ on:
           - windows-latest
         default: windows-latest
       branch:
-        description: "Repository branch (don't touch it if you don't know what it is!!!)"
+        description: "Rama del repositorio (¡no la toques si no sabes qué es!)"
         required: false
         type: choice
         options:
