@@ -27,7 +27,7 @@ if ('--disable-logging' not in sys.argv and not MBCI_MODE) or ('--disable-loggin
 from modules.EmailAPIs import *
 
 # ---- Quick settings [for Developers to quickly change behavior without changing all files] ----
-VERSION = ['v1.5.6.3', 1563]
+VERSION = ['v1.5.6.7', 1567]
 LOGO = f"""
 ███████╗███████╗███████╗████████╗   ██╗  ██╗███████╗██╗   ██╗ ██████╗ ███████╗███╗   ██╗
 ██╔════╝██╔════╝██╔════╝╚══██╔══╝   ██║ ██╔╝██╔════╝╚██╗ ██╔╝██╔════╝ ██╔════╝████╗  ██║
@@ -41,7 +41,7 @@ LOGO = f"""
                                                               soladify, AngryBonk, Xoncia,
                                                               Anteneh13, otre4, AHDR3,
                                                               Shariful797, ImHisako,
-                                                              ppsmurf, ugvfpdcuwfnh
+                                                              ppsmurf, ugvfpdcuwfnh, chrisdaloa
                                                 Telegram: https://t.me/rzc0d3r_official
 """
 if '--no-logo' in sys.argv:
@@ -216,6 +216,8 @@ class MBCIConfigManager:
                 all_args[key.replace('-', '_')] = value
 
             for key, value in all_args.items():
+                if key == 'return_exit_code' and all_args[key] == ARGS_DEFAULT[key]:
+                    continue
                 if (isinstance(value, bool) and not value) or (key in MBCI_OTHER_ARGS and all_args[key] == ARGS_DEFAULT[key]):
                     continue
                 config_sys_argv.append('--'+key.replace('_', '-'))
